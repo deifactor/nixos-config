@@ -7,6 +7,11 @@
     htop
     powertop
 
+    # software dev tools
+    ag
+    nixfmt
+    rustup
+
     # chat clients
     discord
     tdesktop
@@ -16,7 +21,8 @@
     google-chrome
 
     # tunes
-    beets cmus
+    beets
+    cmus
 
     # graphical stuff
     xss-lock
@@ -62,9 +68,7 @@
     ];
   };
 
-  programs.rofi = {
-    enable = true;
-  };
+  programs.rofi = { enable = true; };
 
   services.compton = {
     enable = true;
@@ -74,19 +78,13 @@
     fadeDelta = 3;
   };
 
-  services.dunst = {
-    enable = true;
-  };
+  services.dunst = { enable = true; };
 
-  services.flameshot = {
-    enable = true;
-  };
+  services.flameshot = { enable = true; };
 
   services.polybar = {
     enable = true;
-    package = pkgs.polybar.override {
-      i3GapsSupport = true;
-    };
+    package = pkgs.polybar.override { i3GapsSupport = true; };
 
     script = "polybar bar &";
     config = import ./polybar.nix;
@@ -96,16 +94,17 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      keybindings = let modifier = "Mod4"; in
-      lib.mkOptionDefault {
+      keybindings = let modifier = "Mod4";
+      in lib.mkOptionDefault {
         "${modifier}+d" = "exec --no-startup-id rofi -show drun";
       };
 
-      bars = [];
+      bars = [ ];
 
       startup = [
         {
-          command = "xss-lock --transfer-sleep-lock -- i3lock -i ~/wallpapers/anime/sakuya-knives.png";
+          command =
+            "xss-lock --transfer-sleep-lock -- i3lock -i ~/wallpapers/anime/sakuya-knives.png";
           notification = false;
         }
         {
@@ -113,15 +112,21 @@
           always = true;
           notification = false;
         }
-        ];
-
-      gaps = { inner = 8; outer = 0; };
-      window = {
-      commands = [
-        # Apparently you have to disable titlebars for i3-gaps. Dunno why.
-        { command = "border pixel 1"; criteria = { class = ".*"; }; }
       ];
-    };
+
+      gaps = {
+        inner = 8;
+        outer = 0;
+      };
+      window = {
+        commands = [
+          # Apparently you have to disable titlebars for i3-gaps. Dunno why.
+          {
+            command = "border pixel 1";
+            criteria = { class = ".*"; };
+          }
+        ];
+      };
     };
   };
 }

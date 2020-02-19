@@ -5,11 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # betray my principles for gamer chat
   nixpkgs.config.allowUnfree = true;
@@ -23,7 +22,8 @@
   hardware.opengl.driSupport32Bit = true;
 
   networking.hostName = "superluminal-steel"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable =
+    true; # Enables wireless support via wpa_supplicant.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -43,7 +43,11 @@
     rustup
 
     # Utilities
-    keepassxc wget file nix-index killall
+    keepassxc
+    wget
+    file
+    nix-index
+    killall
 
     syncthing
   ];
@@ -83,9 +87,7 @@
   services.xserver = {
     enable = true;
     libinput.enable = true;
-    desktopManager = {
-      xterm.enable = false;
-    };
+    desktopManager = { xterm.enable = false; };
 
     xkbOptions = "ctrl:nocaps";
 
@@ -116,19 +118,19 @@
 
   powerManagement.cpuFreqGovernor = "ondemand";
 
-  users.groups.video = {};
+  users.groups.video = { };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brightflame = {
-     isNormalUser = true;
-     extraGroups = [ "video" "wheel" ]; # Enable ‘sudo’ for the user.
-     shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [ "video" "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   users.users.vector = {
-     isNormalUser = true;
-     extraGroups = [ "video" "wheel" ];
-     shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [ "video" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   home-manager.users.vector = import ./vector.nix;
