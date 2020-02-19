@@ -76,6 +76,7 @@
     shadow = true;
     fade = true;
     fadeDelta = 3;
+    vSync = "true";
   };
 
   services.dunst = { enable = true; };
