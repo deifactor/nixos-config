@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -17,6 +17,10 @@
 
     # tunes
     beets cmus
+
+    # graphical stuff
+    xss-lock
+    feh
   ];
 
   programs.zsh = {
@@ -86,5 +90,38 @@
 
     script = "polybar bar &";
     config = import ./polybar.nix;
+  };
+
+  xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      modifier = "Mod4";
+      keybindings = let modifier = "Mod4"; in
+      lib.mkOptionDefault {
+        "${modifier}+d" = "exec --no-startup-id rofi -show drun";
+      };
+
+      bars = [];
+
+      startup = [
+        {
+          command = "xss-lock --transfer-sleep-lock -- i3lock -i ~/wallpapers/anime/sakuya-knives.png";
+          notification = false;
+        }
+        {
+          command = "feh --bg-scale ~/wallpapers/anime/alice-marisa-sakuya.jpg";
+          always = true;
+          notification = false;
+        }
+        ];
+
+      gaps = { inner = 8; outer = 0; };
+      window = {
+      commands = [
+        # Apparently you have to disable titlebars for i3-gaps. Dunno why.
+        { command = "border pixel 1"; criteria = { class = ".*"; }; }
+      ];
+    };
+    };
   };
 }

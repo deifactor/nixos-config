@@ -38,28 +38,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # chrome is necessary for granblue
-    firefox libinput google-chrome
-
     # Nerd shit for nerds
-    vim neovim kitty mosh toilet
-    pciutils usbutils
-    fzf ag
+    neovim
     rustup
 
     # Utilities
-    keepassxc wget file nix-index killall xss-lock
-    htop
+    keepassxc wget file nix-index killall
 
     syncthing
-
-    # aesthetic
-    feh
-    pywal
-
-    # build stuff. these are installed so i don't need to install them *every*
-    # single time, but libraries should probably go in a shell.nix.
-    binutils gcc gnumake openssl pkgconfig
   ];
 
   fonts.fonts = with pkgs; [
