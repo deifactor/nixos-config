@@ -1,7 +1,23 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.htop pkgs.powertop ];
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    # system monitors
+    htop
+    powertop
+
+    # chat clients
+    discord
+    tdesktop
+
+    # chrome is necessary for granblue
+    firefox
+    google-chrome
+
+    # tunes
+    beets cmus
+  ];
 
   programs.zsh = {
     enable = true;
@@ -40,5 +56,35 @@
       # Plugins
       iceberg-vim
     ];
+  };
+
+  programs.rofi = {
+    enable = true;
+  };
+
+  services.compton = {
+    enable = true;
+    backend = "glx";
+    shadow = true;
+    fade = true;
+    fadeDelta = 3;
+  };
+
+  services.dunst = {
+    enable = true;
+  };
+
+  services.flameshot = {
+    enable = true;
+  };
+
+  services.polybar = {
+    enable = true;
+    package = pkgs.polybar.override {
+      i3GapsSupport = true;
+    };
+
+    script = "polybar bar &";
+    config = import ./polybar.nix;
   };
 }

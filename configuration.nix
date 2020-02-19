@@ -42,38 +42,24 @@
     firefox libinput google-chrome
 
     # Nerd shit for nerds
-    vim neovim kitty mosh git toilet
-    pciutils usbutils cmus
+    vim neovim kitty mosh toilet
+    pciutils usbutils
     fzf ag
     rustup
-
-    # Chat clients
-    discord tdesktop
 
     # Utilities
     keepassxc wget file nix-index killall xss-lock
     htop
-
-    # Desktop utilities
-    rofi
-    (polybar.override { i3GapsSupport = true; mpdSupport = true; pulseSupport = true; })
-    flameshot
 
     syncthing
 
     # aesthetic
     feh
     pywal
-    (dunst.override { dunstify = true; })
-
-    # tunes
-    beets ncmpcpp
 
     # build stuff. these are installed so i don't need to install them *every*
     # single time, but libraries should probably go in a shell.nix.
     binutils gcc gnumake openssl pkgconfig
-
-    steam
   ];
 
   fonts.fonts = with pkgs; [
@@ -119,22 +105,10 @@
 
     windowManager.i3 = {
       enable = true;
-      package = pkgs.i3-gaps; 
+      package = pkgs.i3-gaps;
     };
 
     displayManager.defaultSession = "none+i3";
-  };
-
-  services.compton = {
-    enable = true;
-    vSync = true;
-    backend = "glx";
-    shadow = true;
-    fade = true;
-    fadeDelta = 3;
-    wintypes = {
-      dock = { shadow = false; };
-    };
   };
 
   services.syncthing = {
@@ -154,7 +128,7 @@
 
   programs.zsh.enable = true;
 
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "ondemand";
 
   users.groups.video = {};
 
@@ -178,6 +152,5 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
-
 }
 
