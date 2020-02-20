@@ -28,6 +28,7 @@
     # graphical stuff
     xss-lock
     feh
+    light
   ];
 
   programs.zsh = {
@@ -102,6 +103,16 @@
       keybindings = let modifier = "Mod4";
       in lib.mkOptionDefault {
         "${modifier}+d" = "exec --no-startup-id rofi -show drun";
+
+        XF86AudioRaiseVolume =
+          "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%";
+        XF86AudioLowerVolume =
+          "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%";
+        XF86AudioMute =
+          "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
+
+        XF86MonBrightnessUp = "exec --no-startup-id light -A 10";
+        XF86MonBrightnessDown = "exec --no-startup-id light -U 10";
       };
 
       bars = [ ];
