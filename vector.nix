@@ -9,6 +9,7 @@
 
     # software dev tools
     ag
+    kitty
     nixfmt
     rustup
 
