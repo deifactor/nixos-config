@@ -69,7 +69,10 @@
     ];
   };
 
-  programs.rofi = { enable = true; };
+  programs.rofi = {
+    enable = true;
+    theme = ./interstellar.rasi;
+  };
 
   services.compton = {
     enable = true;

@@ -1,0 +1,44 @@
+/**
+ * ROFI Color theme
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
+
+* {
+    text-color:                  white;
+    /* hack to make sure elements don't stomp all over backgrounds */
+    background-color:            rgba(0, 0, 0, 0%);
+}
+
+#window {
+    transparency: "background";
+}
+
+#mainbox {
+    padding: 20px 0px 20px 0px;
+    background-color: rgba(0, 0, 0, 80%);
+    children: [inputbar, message, listview];
+}
+
+#inputbar {
+    margin: 0px 0px 20px 20px;
+}
+
+#element {
+    padding: 5px 3px 5px 20px;
+}
+
+#element selected {
+    background-color: white;
+    text-color: black;
+}
+
+#inputbar {
+    children:   [ prompt, textbox-prompt-colon, entry ];
+}
+
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+}
