@@ -29,6 +29,8 @@
     xss-lock
     feh
     light
+
+    texlive.combined.scheme-medium
   ];
 
   programs.zsh = {
@@ -67,6 +69,7 @@
 
       # Plugins
       iceberg-vim
+
     ];
   };
 
