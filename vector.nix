@@ -11,7 +11,6 @@
     ag
     kitty
     nixfmt
-    rustup
 
     # chat clients
     discord
@@ -29,6 +28,8 @@
     xss-lock
     feh
     light
+
+    keepassxc
 
     texlive.combined.scheme-medium
   ];

@@ -40,10 +40,8 @@
   environment.systemPackages = with pkgs; [
     # Nerd shit for nerds
     neovim
-    rustup
 
     # Utilities
-    keepassxc
     wget
     file
     nix-index
