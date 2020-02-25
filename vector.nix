@@ -20,7 +20,6 @@
     google-chrome
 
     # tunes
-    beets
     cmus
 
     # graphical stuff
@@ -45,6 +44,14 @@
     enable = true;
     userEmail = "relativistic.policeman@gmail.com";
     userName = "Ash";
+  };
+
+  programs.beets = {
+    enable = true;
+    settings = {
+      directory = "~/music";
+      plugins = "fromfilename";
+    };
   };
 
   programs.neovim = {
