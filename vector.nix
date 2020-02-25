@@ -113,9 +113,7 @@
     settings = rec {
       global = {
         markup = "none";
-        format = ''
-          <big><b>%s</b></big>
-          %b'';
+        format = "<big><b>%s</b></big>\\n%b";
         sort = false;
         alignment = "left";
         bounce_freq = 0;
