@@ -158,6 +158,9 @@
 
         XF86MonBrightnessUp = "exec --no-startup-id light -A 10";
         XF86MonBrightnessDown = "exec --no-startup-id light -U 10";
+
+        "Shift+Print" = "exec flameshot gui";
+        Print = "exec flameshot full -p $HOME/Documents/screenshots";
       };
 
       bars = [ ];
