@@ -46,6 +46,10 @@
     userName = "Ash";
   };
 
+  programs.taskwarrior = {
+    enable = true;
+  };
+
   programs.beets = {
     enable = true;
     settings = {
