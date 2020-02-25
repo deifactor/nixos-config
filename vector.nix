@@ -120,6 +120,8 @@
         frame_width = 2;
         frame_color = "#EC5F67";
 
+        show_indicators = false;
+
         icon_position = "left";
         max_icon_size = 60;
       };
