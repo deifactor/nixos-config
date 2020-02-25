@@ -119,6 +119,9 @@
         separator_color = "frame";
         frame_width = 2;
         frame_color = "#EC5F67";
+
+        icon_position = "left";
+        max_icon_size = 60;
       };
 
       urgency_normal = {
