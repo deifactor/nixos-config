@@ -151,7 +151,8 @@
     enable = true;
     package = pkgs.polybar.override { i3GapsSupport = true; };
 
-    script = "polybar bar &";
+    # Extra packages necessary for the cmus script.
+    script = "PATH=$PATH:${pkgs.cmus}/bin:${pkgs.busybox}/bin polybar bar &";
     config = import ./polybar.nix;
   };
 

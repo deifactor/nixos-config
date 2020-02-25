@@ -86,11 +86,13 @@ in {
   "bar/bar" = {
     width = "100%";
     height = "34";
+    fixed-center = true;
 
     background = background;
     foreground = foreground;
 
     modules-left = "i3";
+    modules-center = "cmus";
 
     modules-right = gradient.names;
 
@@ -102,6 +104,23 @@ in {
     font-2 = "iosevka:pixelsize=20;4";
     # Separator.
     font-3 = "iosevka:pixelsize=30;6";
+  };
+
+  "module/cmus" = rec {
+    type = "custom/script";
+    exec = toString ./polybar-cmus.sh;
+    exec-if = "pgrep -x cmus";
+    interval = 1;
+
+    format = "<label>";
+    format-prefix = " ";
+    format-prefix-font = 3;
+    format-prefix-foreground = "#00a2d3";
+    format-suffix = " ";
+    format-suffix-font = format-prefix-font;
+    format-suffix-foreground = format-prefix-foreground;
+    label = "%{T3} %{T-}%output%";
+    label-maxlen = 75;
   };
 
   "module/i3" = {
