@@ -176,6 +176,9 @@
 
         "Shift+Print" = "exec flameshot gui";
         Print = "exec flameshot full -p $HOME/Documents/screenshots";
+
+        "${modifier}+minus" = "scratchpad show";
+        "${modifier}+Shift+minus" = "move scratchpad";
       };
 
       bars = [ ];
