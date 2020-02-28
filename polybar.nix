@@ -104,6 +104,8 @@ in {
     font-2 = "iosevka:pixelsize=20;4";
     # Separator.
     font-3 = "iosevka:pixelsize=30;6";
+    # Fallback for Japanese and such.
+    font-4 = "unifont:pixelsize=14;2";
   };
 
   "module/cmus" = rec {
