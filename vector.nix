@@ -85,7 +85,7 @@ rec {
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.85";
+      background_opacity = "0.75";
       font_family = "Iosevka Term";
       font_size = 13;
     };
