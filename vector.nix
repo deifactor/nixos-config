@@ -26,7 +26,7 @@
     feh
     light
 
-    keepassxc
+    bitwarden
 
     texlive.combined.scheme-medium
   ];
