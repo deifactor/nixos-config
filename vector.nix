@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, fetchFromGitHub, ... }:
 
-{
+rec {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # system monitors
@@ -98,12 +98,36 @@
 
   services.compton = {
     enable = true;
-    backend = "glx";
-    shadow = true;
-    fade = true;
-    fadeDelta = 3;
-    vSync = "true";
+
+    package = pkgs.compton.overrideAttrs (oldAttrs: {
+      version = "next";
+      src = (import <nixpkgs> { }).fetchFromGitHub {
+        owner = "yshui";
+        repo = "picom";
+        rev = "2f0b7cd99290e4a3ad8dd6e3fa523345375d4759";
+        sha256 = "1l48fxl04vkzr4r94sl37nbbw7a621rn8sxmkbdv4252i1gjxd4z";
+        fetchSubmodules = true;
+      };
+    });
   };
+
+  systemd.user.services.compton.Service.ExecStart = let
+    configFile = pkgs.writeText "compton.conf" ''
+      fade = true;
+      fadeDelta = 3;
+      shadow = true;
+      vSync = true;
+      backend = "glx";
+      blur: {
+        method = "gaussian";
+        size = 20;
+        deviation = 10.0;
+      };
+      blur-background = true;
+    '';
+
+  in lib.mkForce
+  "${services.compton.package}/bin/compton --experimental-backends --config ${configFile}";
 
   services.dunst = {
     enable = true;
