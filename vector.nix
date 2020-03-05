@@ -16,8 +16,7 @@
     tdesktop
 
     # chrome is necessary for granblue
-    firefox
-    google-chrome
+    qutebrowser
 
     # tunes
     cmus
