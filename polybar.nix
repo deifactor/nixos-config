@@ -142,6 +142,11 @@ in {
     label-unfocused-foreground = "#60ffffff";
     label-unfocused-padding = 1;
     label-unfocused-font = 2;
+
+    label-urgent = "%icon%";
+    label-urgent-foreground = "#ffffff";
+    label-urgent-padding = 1;
+    label-urgent-font = 2;
   } // (i3Icons [
     ""
     ""
