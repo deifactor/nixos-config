@@ -99,9 +99,8 @@
 
   services.syncthing = {
     enable = true;
-
-    user = "brightflame";
-    dataDir = "/home/brightflame/.syncthing";
+    user = "vector";
+    dataDir = "/home/vector/.syncthing";
   };
 
   boot.initrd.luks.devices = {
