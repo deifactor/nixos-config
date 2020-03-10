@@ -207,11 +207,11 @@ rec {
       startup = [
         {
           command =
-            "xss-lock --transfer-sleep-lock -- i3lock -i ~/wallpapers/anime/sakuya-knives.png";
+            "xss-lock --transfer-sleep-lock -- i3lock -i ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
           notification = false;
         }
         {
-          command = "feh --bg-scale ~/wallpapers/anime/alice-marisa-sakuya.jpg";
+          command = "feh --bg-scale ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
           always = true;
           notification = false;
         }
