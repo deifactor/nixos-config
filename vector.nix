@@ -23,6 +23,7 @@ rec {
 
     # graphical stuff
     xss-lock
+    i3lock-color
     feh
     light
 
@@ -207,7 +208,7 @@ rec {
       startup = [
         {
           command =
-            "xss-lock --transfer-sleep-lock -- i3lock -i ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
+            "xss-lock --transfer-sleep-lock -- i3lock-color -i ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
           notification = false;
         }
         {
