@@ -220,14 +220,14 @@ rec {
       ];
 
       gaps = {
-        inner = 8;
-        outer = 0;
+        inner = 12;
+        outer = 4;
       };
       window = {
         commands = [
           # Apparently you have to disable titlebars for i3-gaps. Dunno why.
           {
-            command = "border pixel 1";
+            command = "border pixel 0";
             criteria = { class = ".*"; };
           }
         ];
