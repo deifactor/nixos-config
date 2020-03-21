@@ -80,6 +80,7 @@ rec {
       # Plugins
       iceberg-vim
 
+      goyo-vim
     ];
   };
 
