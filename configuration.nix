@@ -92,9 +92,9 @@
     # winit 'helpfully' computes the true DPI, which results in it looking
     # weird. So we set Xft.dpi, which winit respects.
     displayManager.sessionCommands = ''
-       ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-       Xft.dpi: 96
-       EOF'';
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      Xft.dpi: 96
+      EOF'';
   };
 
   services.syncthing = {
