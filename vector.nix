@@ -27,6 +27,7 @@ rec {
     i3lock-color
     feh
     light
+    lxappearance
 
     bitwarden
 
