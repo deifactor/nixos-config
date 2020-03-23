@@ -10,6 +10,7 @@ rec {
     # software dev tools
     ag
     nixfmt
+    direnv
 
     # chat clients
     discord
@@ -38,6 +39,7 @@ rec {
     localVariables = {
       PROMPT = "%F{green}vec%f@%F{magenta}s-s%f %F{blue}%B%~%b%f %# ";
     };
+    initExtra = "eval \"$(direnv hook zsh)\"";
   };
 
   programs.git = {
@@ -97,6 +99,8 @@ rec {
     enable = true;
     theme = ./interstellar.rasi;
   };
+
+  services.lorri.enable = true;
 
   services.compton = {
     enable = true;
