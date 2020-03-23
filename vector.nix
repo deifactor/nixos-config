@@ -125,6 +125,10 @@ rec {
       shadow = true;
       vSync = true;
       backend = "glx";
+      inactive-dim = 0.2;
+      wintypes: {
+        dock = { shadow = false; };
+      };
       blur: {
         method = "gaussian";
         size = 20;
