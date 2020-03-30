@@ -120,8 +120,6 @@ rec {
 
   systemd.user.services.compton.Service.ExecStart = let
     configFile = pkgs.writeText "compton.conf" ''
-      fade = true;
-      fadeDelta = 3;
       shadow = true;
       vSync = true;
       backend = "glx";
