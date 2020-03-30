@@ -135,6 +135,8 @@ rec {
         deviation = 10.0;
       };
       blur-background = true;
+      glx-no-stencil = true;
+      glx-no-rebind-pixmap = true;
     '';
 
   in lib.mkForce
