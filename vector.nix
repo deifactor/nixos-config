@@ -37,10 +37,19 @@ rec {
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
-    localVariables = {
-      PROMPT = "%F{green}vec%f@%F{magenta}s-s%f %F{blue}%B%~%b%f %# ";
-    };
-    initExtra = "eval \"$(direnv hook zsh)\"";
+    initExtra = ''eval "$(direnv hook zsh)"'';
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = lib.cleanSource ./p10k-config;
+        file = "p10k.zsh";
+      }
+    ];
   };
 
   programs.git = {
@@ -222,7 +231,8 @@ rec {
           notification = false;
         }
         {
-          command = "feh --bg-scale ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
+          command =
+            "feh --bg-scale ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
           always = true;
           notification = false;
         }
