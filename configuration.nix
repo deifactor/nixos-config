@@ -77,6 +77,11 @@
     enable = true;
     libinput.enable = true;
     desktopManager = { xterm.enable = false; };
+    # I have no clue why this is necessary, other than the fact that a bunch of
+    # stuff seems to operate under the assumption that this monitor is 96 DPI.
+    # winit 'helpfully' computes the true DPI, which results in it looking
+    # weird. So we set Xft.dpi, which winit respects.
+    dpi = 96;
 
     xkbOptions = "ctrl:nocaps";
 
@@ -86,15 +91,6 @@
     };
 
     displayManager.defaultSession = "none+i3";
-
-    # I have no clue why this is necessary, other than the fact that a bunch of
-    # stuff seems to operate under the assumption that this monitor is 96 DPI.
-    # winit 'helpfully' computes the true DPI, which results in it looking
-    # weird. So we set Xft.dpi, which winit respects.
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      Xft.dpi: 96
-      EOF'';
   };
 
   services.syncthing = {
