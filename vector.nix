@@ -227,12 +227,11 @@ rec {
       startup = [
         {
           command =
-            "xss-lock --transfer-sleep-lock -- i3lock-color -i ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
+            "xss-lock --transfer-sleep-lock -- i3lock-color -i ~/Documents/wallpapers/neon/neon-city.jpg";
           notification = false;
         }
         {
-          command =
-            "feh --bg-scale ~/Documents/wallpapers/video-games/ivara-sniper.jpg";
+          command = "feh --bg-scale ~/Documents/wallpapers/neon/neon-city.jpg";
           always = true;
           notification = false;
         }
