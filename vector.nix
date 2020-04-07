@@ -112,42 +112,24 @@ rec {
 
   services.lorri.enable = true;
 
-  services.compton = {
+  services.picom = {
     enable = true;
+    experimentalBackends = true;
 
-    package = pkgs.compton.overrideAttrs (oldAttrs: {
-      version = "next";
-      src = (import <nixpkgs> { }).fetchFromGitHub {
-        owner = "yshui";
-        repo = "picom";
-        rev = "2f0b7cd99290e4a3ad8dd6e3fa523345375d4759";
-        sha256 = "1l48fxl04vkzr4r94sl37nbbw7a621rn8sxmkbdv4252i1gjxd4z";
-        fetchSubmodules = true;
-      };
-    });
-  };
-
-  systemd.user.services.compton.Service.ExecStart = let
-    configFile = pkgs.writeText "compton.conf" ''
-      shadow = true;
-      vSync = true;
-      backend = "glx";
-      inactive-dim = 0.2;
-      wintypes: {
-        dock = { shadow = false; };
-      };
+    blur = true;
+    vSync = true;
+    backend = "glx";
+    inactiveDim = "0.2";
+    extraOptions = ''
+      glx-no-stencil = true;
+      blx-no-rebind-pixmap = true;
       blur: {
         method = "gaussian";
         size = 20;
         deviation = 10.0;
-      };
-      blur-background = true;
-      glx-no-stencil = true;
-      glx-no-rebind-pixmap = true;
+      }
     '';
-
-  in lib.mkForce
-  "${services.compton.package}/bin/compton --experimental-backends --config ${configFile}";
+  };
 
   services.dunst = {
     enable = true;
