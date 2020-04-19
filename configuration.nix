@@ -54,7 +54,7 @@
     unifont
     siji
     meslo-lg
-    (nerdfonts.override { withFont = "Iosevka"; })
+    (nerdfonts.override { fonts = ["Iosevka"]; })
   ];
 
   console.useXkbConfig = true;
