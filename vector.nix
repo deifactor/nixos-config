@@ -120,6 +120,7 @@ rec {
     vSync = true;
     backend = "glx";
     inactiveDim = "0.2";
+    shadow = true;
     extraOptions = ''
       glx-no-stencil = true;
       blx-no-rebind-pixmap = true;
