@@ -100,8 +100,8 @@ rec {
     enable = true;
     settings = {
       background_opacity = "0.75";
-      font_family = "Iosevka Term";
-      font_size = 13;
+      font_family = "Meslo LG M";
+      font_size = "11.5";
     };
   };
 
