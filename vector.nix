@@ -221,7 +221,7 @@ rec {
       ];
 
       gaps = {
-        inner = 12;
+        inner = 8;
         outer = 4;
       };
       window = {
