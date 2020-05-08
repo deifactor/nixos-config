@@ -59,6 +59,7 @@
     unifont
     siji
     meslo-lg
+    uw-ttyp0
     (nerdfonts.override { fonts = ["Iosevka"]; })
   ];
 

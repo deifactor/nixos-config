@@ -12,7 +12,7 @@ let
   gradientOpts = {
     name = "r";
     colors = fadeColors;
-    separator = " %{T4}%{T-}";
+    separator = " ";
   };
 
   gradient = (import ./polybar-gradient.nix) gradientOpts [
@@ -20,7 +20,7 @@ let
     (bg: {
       type = "internal/cpu";
       interval = 2;
-      format-prefix = "%{T3}%{T-} ";
+      format-prefix = " CPU ";
       format-background = bg;
       format-prefix-foreground = dimForeground;
       label = "%percentage:2%%";
@@ -29,7 +29,7 @@ let
     (bg: {
       type = "internal/memory";
       interval = 2;
-      format-prefix = "%{T3}%{T-} ";
+      format-prefix = " MEM ";
       format-background = bg;
       format-prefix-foreground = dimForeground;
       label = "%percentage_used%%";
@@ -48,10 +48,10 @@ let
       interval = "3.0";
 
       label-connected =
-        "%{T3}%{F${dimForeground}}%{F-}%{T-} %upspeed% %{T3}%{F${dimForeground}}%{F-}%{T-} %downspeed%";
+        " %{F${dimForeground}}UP%{F-} %upspeed% %{F${dimForeground}}DN%{F-} %downspeed%";
       label-connected-background = bg;
 
-      label-disconnected = "%{T3}睊%{T-}";
+      label-disconnected = " NAK";
       label-disconnected-background = bg;
     })
     null
@@ -63,7 +63,7 @@ let
       time = "%H:%M";
       label = "%date% %time%";
 
-      format-prefix = "%{T3}%{T-} ";
+      format-prefix = "%{T3}%{T-} ";
       format-prefix-foreground = dimForeground;
 
       format-background = bg;
@@ -71,7 +71,7 @@ let
     null
     (bg: {
       type = "custom/text";
-      content = "%{T2}卑%{T-} %{T2}%{T-} %{T2}理%{T-} ";
+      content = " V@S ";
       content-background = bg;
     })
   ];
@@ -85,7 +85,7 @@ let
 in {
   "bar/bar" = {
     width = "100%";
-    height = "34";
+    height = "24";
     fixed-center = true;
 
     background = background;
@@ -97,15 +97,8 @@ in {
     modules-right = gradient.names;
 
     # General text font.
-    font-0 = "iosevka:pixelsize=12;2";
-    # Workspace icons.
-    font-1 = "iosevka:pixelsize=24;4";
-    # Right-side bar icons.
-    font-2 = "iosevka:pixelsize=20;4";
-    # Separator.
-    font-3 = "iosevka:pixelsize=30;6";
-    # Fallback for Japanese and such.
-    font-4 = "unifont:pixelsize=14;2";
+    font-0 = "Ttyp0:pixelsize=16;3";
+    font-1 = "unifont:size=12;3";
   };
 
   "module/cmus" = rec {
@@ -116,12 +109,10 @@ in {
 
     format = "<label>";
     format-prefix = " ";
-    format-prefix-font = 3;
     format-prefix-foreground = "#00a2d3";
     format-suffix = " ";
-    format-suffix-font = format-prefix-font;
     format-suffix-foreground = format-prefix-foreground;
-    label = "%{T3} %{T-}%output%";
+    label = "%output%";
     label-maxlen = 75;
   };
 
@@ -136,26 +127,23 @@ in {
     label-focused-foreground = "#ffffff";
     label-focused-background = highlight;
     label-focused-padding = 1;
-    label-focused-font = 2;
 
     label-unfocused = "%icon%";
     label-unfocused-foreground = "#60ffffff";
     label-unfocused-padding = 1;
-    label-unfocused-font = 2;
 
     label-urgent = "%icon%";
     label-urgent-foreground = "#ffffff";
     label-urgent-padding = 1;
-    label-urgent-font = 2;
   } // (i3Icons [
-    ""
-    ""
-    ""
-    ""
-    ""
-    ""
-    "%{T1}7%{T-}"
-    "%{T1}8%{T-}"
-    "%{T1}9%{T-}"
+    "WEB"
+    "MSG"
+    "VIM"
+    "TRM"
+    "GBF"
+    "MUS"
+    "-7-"
+    "-8-"
+    "-9-"
   ]);
 } // gradient.modules
