@@ -50,6 +50,11 @@
     syncthing
   ];
 
+  virtualisation.lxd = {
+    enable = true;
+    recommendedSysctlSettings = true;
+  };
+
   fonts.fonts = with pkgs; [
     unifont
     siji
@@ -122,7 +127,7 @@
 
   users.users.vector = {
     isNormalUser = true;
-    extraGroups = [ "video" "wheel" ];
+    extraGroups = [ "video" "wheel" "lxd" ];
     shell = pkgs.zsh;
   };
 
