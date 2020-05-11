@@ -31,6 +31,8 @@ rec {
 
     bitwarden
 
+    magic-wormhole
+
     texlive.combined.scheme-medium
   ];
 
