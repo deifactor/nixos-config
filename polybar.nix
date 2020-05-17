@@ -134,6 +134,7 @@ in {
 
     label-urgent = "%icon%";
     label-urgent-foreground = "#ffffff";
+    label-urgent-background = "#990047";
     label-urgent-padding = 1;
   } // (i3Icons [
     "WEB"
