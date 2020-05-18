@@ -73,6 +73,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.tlp.enable = true;
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -114,8 +116,6 @@
   };
 
   programs.zsh.enable = true;
-
-  powerManagement.cpuFreqGovernor = "ondemand";
 
   users.groups.video = { };
 
