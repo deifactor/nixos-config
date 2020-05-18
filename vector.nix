@@ -144,7 +144,7 @@ rec {
     enable = true;
     settings = rec {
       global = {
-        markup = "none";
+        markup = "full";
         format = "<big><b>%s</b></big>\\n%b";
         sort = false;
         alignment = "left";
