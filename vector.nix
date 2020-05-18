@@ -60,7 +60,13 @@ rec {
     userName = "Ash";
   };
 
-  programs.taskwarrior = { enable = true; };
+  programs.taskwarrior = {
+    enable = true;
+    config = {
+      # No priority is higher than low priority.
+      uda.priority.values = "H,M,,L";
+    };
+  };
 
   programs.beets = {
     enable = true;
