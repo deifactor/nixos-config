@@ -33,3 +33,8 @@ set splitbelow
 set splitright
 nnoremap <silent> <F8> :TagbarToggle<CR>
 au BufNewFile,BufRead /*.rasi setf css
+
+inoremap jk <esc>
+
+let mapleader = "\\"
+au FileType vim nnoremap <Leader>r :write<CR>:source %<CR>
