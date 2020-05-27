@@ -16,8 +16,7 @@ rec {
     discord
     tdesktop
 
-    # chrome is necessary for granblue
-    qutebrowser
+    (import ./nixpkgs-qutebrowser/default.nix {})
 
     # tunes
     cmus

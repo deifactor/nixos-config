@@ -1,0 +1,3 @@
+[submodule "nixpkgs-qutebrowser"]
+	path = nixpkgs-qutebrowser
+	url = https://github.com/petabyteboy/nixpkgs-qutebrowser
