@@ -11,6 +11,7 @@ rec {
     ag
     nixfmt
     direnv
+    gdb
 
     # chat clients
     discord
@@ -83,6 +84,7 @@ rec {
       # generally useful stuff
       vim-startify
       vim-sensible
+      vim-python-pep8-indent
 
       # it's like a real IDE!
       vim-airline
