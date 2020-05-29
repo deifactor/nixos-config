@@ -136,13 +136,22 @@ rec {
       iceberg-vim
 
       goyo-vim
+      limelight-vim
+
+      # Useful stuff for theme development.
+      pgmnt-vim
+      inspecthi-vim
+      colorswatch-vim
+
+      vim-eunuch
     ];
   };
 
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.75";
+      background = "#100d15";
+      background_opacity = "0.89";
       font_family = "Meslo LG M";
       font_size = "11.5";
     };
