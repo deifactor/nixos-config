@@ -7,15 +7,6 @@ let g:rustfmt_autosave = 1
 
 let g:ale_sign_column_always = 1
 
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-colorscheme iceberg
-" just a little bit darker than normal
-highlight! Normal guibg=#14161f
-highlight! EndOfBuffer guibg=#14161f
-
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline_powerline_fonts=1
 
@@ -36,5 +27,25 @@ au BufNewFile,BufRead /*.rasi setf css
 
 inoremap jk <esc>
 
-let mapleader = "\\"
+let mapleader = "\<Space>"
 au FileType vim nnoremap <Leader>r :write<CR>:source %<CR>
+" useful for debugging highlighting
+nnoremap <Leader><Leader>i :Inspecthi<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>a :Ag<CR>
+
+let g:airline_mode_map = {
+  \ 'c': 'CMND',
+  \ 'i': 'INSR',
+  \ 'ic': 'I-CM',
+  \ 'ix': 'I-CM',
+  \ 'n': 'NRML',
+  \ 'ni': '[IN]',
+  \ 'R': 'RPLC',
+  \ 'Rv': 'VRPL',
+  \ 's': 'SLCT',
+  \ 'S': 'S-LN',
+  \ 't': 'TERM',
+  \ 'v': 'VSUL',
+  \ 'V': 'V-LN',
+  \}

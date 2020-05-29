@@ -1,5 +1,36 @@
-{ pkgs, lib, fetchFromGitHub, ... }:
+{ pkgs, lib, ... }:
 
+let
+  customVimPlugins = with pkgs.vimUtils; {
+    pgmnt-vim = buildVimPlugin {
+      name = "pgmnt-vim";
+      src = pkgs.fetchFromGitHub {
+        owner = "cocopon";
+        repo = "pgmnt.vim";
+        rev = "89b8f0885a0fd7189f2f46b13e03d9e254793538";
+        sha256 = "09pqhrpz0xx3qy9jxw3sp1sg0471p41gd1yrz0pmhnxr8qgwa77p";
+      };
+    };
+    inspecthi-vim = buildVimPlugin {
+      name = "inspecthi-vim";
+      src = pkgs.fetchFromGitHub {
+        owner = "cocopon";
+        repo = "inspecthi.vim";
+        rev = "b8a794e808b35d852c51bcdc67c5307dda943517";
+        sha256 = "0rnwjqysjjbmrcqinjf0d6lbsmb6f31avfx4f0hr6qw3a1ax67yp";
+      };
+    };
+    colorswatch-vim = buildVimPlugin {
+      name = "colorswatch-vim";
+      src = pkgs.fetchFromGitHub {
+        owner = "cocopon";
+        repo = "colorswatch.vim";
+        rev = "2e3f847fc0e493de8b119d3c8560e47ceeff595c";
+        sha256 = "18sllamrgdckfaxmy9awh49xm7nvi8ww4asgj36gwdchch2bn112";
+      };
+    };
+  };
+in
 rec {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
@@ -12,6 +43,7 @@ rec {
     nixfmt
     direnv
     gdb
+    fzf
 
     # chat clients
     discord
@@ -80,8 +112,9 @@ rec {
     enable = true;
     extraConfig = builtins.readFile ./config.vim;
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with (pkgs.vimPlugins // customVimPlugins); [
       # generally useful stuff
+      vim-rooter
       vim-startify
       vim-sensible
       vim-python-pep8-indent
@@ -89,7 +122,8 @@ rec {
       # it's like a real IDE!
       vim-airline
       ale
-      ctrlp
+      fugitive
+      fzf-vim
 
       # language support
       vim-nix
