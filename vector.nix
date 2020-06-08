@@ -48,6 +48,7 @@ rec {
     # chat clients
     discord
     tdesktop
+    weechat
 
     (import ./nixpkgs-qutebrowser/default.nix {})
 
