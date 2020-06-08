@@ -49,3 +49,21 @@ let g:airline_mode_map = {
   \ 'v': 'VSUL',
   \ 'V': 'V-LN',
   \}
+
+" startify {{{
+
+let g:startify_fortune_use_unicode = 1
+let g:startify_custom_header_quotes = [
+      \ ['im gay'],
+      \ ['remember, always, that you are beloved.'],
+      \ ['if the zoo bans me for hollering at the animals i will face god and walk backwards into hell', '', '- @dril'],
+      \ ['Everything happens so much', '', '- @horse_ebooks'],
+      \ ['Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris.', '', '- Larry Wall'],
+      \ ['Escape will make me God.', '', '- Durandal'],
+      \ ['Time is the school in which we learn,', 'Time is the fire in which we burn.', '', '- Delmore Schwartz'],
+      \ ['It takes long winter nights to teach a girl how to cultivate within herself invincible summer days.', '', '- Ticker'],
+      \ ]
+
+" }}}
+
+" vim:foldmethod=marker:shiftwidth=2
