@@ -55,6 +55,8 @@
     recommendedSysctlSettings = true;
   };
 
+  virtualisation.docker.enable = true;
+
   fonts.fonts = with pkgs; [
     unifont
     siji
@@ -128,7 +130,7 @@
 
   users.users.vector = {
     isNormalUser = true;
-    extraGroups = [ "video" "wheel" "lxd" ];
+    extraGroups = [ "video" "wheel" "lxd" "docker" ];
     shell = pkgs.zsh;
   };
 
