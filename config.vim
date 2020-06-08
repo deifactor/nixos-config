@@ -66,4 +66,9 @@ let g:startify_custom_header_quotes = [
 
 " }}}
 
+let s:local_config = expand('~/nix-staging/config.vim')
+if filereadable(s:local_config)
+  execute 'source' s:local_config
+endif
+
 " vim:foldmethod=marker:shiftwidth=2
