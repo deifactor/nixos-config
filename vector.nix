@@ -89,7 +89,7 @@ rec {
 
   programs.git = {
     enable = true;
-    userEmail = "relativistic.policeman@gmail.com";
+    userEmail = "ext0l@riseup.net";
     userName = "Ash";
   };
 
