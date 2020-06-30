@@ -44,6 +44,8 @@ rec {
     direnv
     gdb
     fzf
+    jq
+    ngrok
 
     # chat clients
     discord
