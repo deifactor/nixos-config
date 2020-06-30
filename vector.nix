@@ -46,6 +46,7 @@ rec {
     fzf
     jq
     ngrok
+    unzip
 
     # chat clients
     discord
