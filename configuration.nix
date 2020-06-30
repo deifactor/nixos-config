@@ -82,6 +82,7 @@
   hardware.pulseaudio.enable = true;
 
   programs.light.enable = true;
+  programs.adb.enable = true;
 
   services.xserver = {
     enable = true;
@@ -130,7 +131,7 @@
 
   users.users.vector = {
     isNormalUser = true;
-    extraGroups = [ "video" "wheel" "lxd" "docker" ];
+    extraGroups = [ "video" "wheel" "lxd" "docker" "adbusers" ];
     shell = pkgs.zsh;
   };
 
