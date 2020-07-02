@@ -281,6 +281,11 @@ rec {
           always = true;
           notification = false;
         }
+        {
+          command = "i3-msg workspace 1";
+          always = false;
+          notification = false;
+        }
       ];
 
       gaps = {
