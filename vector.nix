@@ -236,6 +236,13 @@ rec {
     config = import ./polybar.nix;
   };
 
+  xsession = {
+    enable = true;
+    initExtra = ''
+    xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -0.4
+    '';
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
