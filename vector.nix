@@ -297,5 +297,11 @@ rec {
         ];
       };
     };
+
+    extraConfig = ''
+      assign [class="discord"] 2
+      assign [class="TelegramDesktop"] 2
+    '';
+
   };
 }
