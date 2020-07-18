@@ -31,6 +31,10 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s25.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
