@@ -52,6 +52,9 @@ rec {
     discord
     tdesktop
     weechat
+    av-98
+
+    thunderbird
 
     (import ./nixpkgs-qutebrowser/default.nix {})
 
